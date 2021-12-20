@@ -111,5 +111,30 @@ namespace NumberPuzzle
             Game.getInstance().Board[x, y] = 0;
 
         }
+
+        public bool CheckWin()
+        {
+            int[,] Board = Game.getInstance().Board;
+
+            for (int i = 0; i < 4; i++)
+                if (Board[0, i] != i + 1)
+                    return false;
+
+            for (int i = 0; i < 4; i++)
+                if (Board[1, i] != i + 5)
+                    return false;
+
+
+            for (int i = 0; i < 4; i++)
+                if (Board[2, i] != i + 9)
+                    return false;
+
+            for (int i = 0; i < 3; i++)
+                if (Board[3, i] != i + 13)
+                    return false;
+
+            return true;
+
+        }
     }
 }

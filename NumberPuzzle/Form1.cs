@@ -46,11 +46,15 @@ namespace NumberPuzzle
             button15.Text = Board[3, 1].ToString() == "0" ? "" : Board[3, 1].ToString();
             button16.Text = Board[3, 0].ToString() == "0" ? "" : Board[3, 0].ToString();
 
+            if (Game.getInstance().CheckWin())
+                MessageBox.Show("PARABÉNS!!! VOCÊ CONSEGUIU!!!");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Game.getInstance().Shuffle();
+            this.UpdateBoard(Game.getInstance());
         }
 
         public void button1_Click(object sender, EventArgs e)
